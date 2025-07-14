@@ -56,4 +56,3 @@ def calculate_totient(number):
         totient *= prime ** prime_factors[prime] - prime ** (prime_factors[prime] - 1)
     
     return totient
-    
