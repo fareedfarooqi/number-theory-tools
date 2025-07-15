@@ -15,8 +15,8 @@ def fuzz_one(data: bytes):
     _ = calculate_totient(n)
 
 def main():
-    afl.init()                   # start AFL forkserver & coverage hooks
-    for raw in sys.stdin.buffer: # read each test-case from stdin
+    afl.init()
+    for raw in sys.stdin.buffer:
         fuzz_one(raw)
 
 if __name__ == "__main__":

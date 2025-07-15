@@ -4,6 +4,12 @@ from sympy import isprime
 number = -1
 
 def unique_prime_factorisation(number):
+    if not isinstance(number, int):
+        raise TypeError(f"{number} is not of a type 'int'!")
+
+    if number <= 0:
+        raise ValueError(f"Number must be a positive number, you passed {number}!")
+
     # Mathematically to optimise the algorithm we can divide the 'number' by upto it's squareroot of
     # the number itself i.e., √497 = 22.293496809607955 or taking it's ceiling we get 23.
     # So we divide 497 by all prime numbers from 1 to 23 inclusive to find it's unique prime factorisation.

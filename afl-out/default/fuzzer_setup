@@ -3,4 +3,4 @@ AFL_DUMB_FORKSRV=1
 AFL_KILL_SIGNAL=9
 AFL_SKIP_BIN_CHECK=1
 # command line:
-'afl-fuzz' '-i' 'seeds/initial_seeds/' '-o' 'afl-out/' '--' 'python3' 'fuzz_totient_afl.py'
+'afl-fuzz' '-i' 'seeds/initial_seeds' '-o' 'afl-out/' '--' 'python3' 'fuzz_totient_afl.py'
