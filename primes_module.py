@@ -1,5 +1,4 @@
 import math
-from fast_modular_exponentiation import eulers_theorem
 
 def exhaustive_fermat_primality_test(number):
     if number < 2:
