@@ -1,4 +1,26 @@
 import math
+from fast_modular_exponentiation import eulers_theorem
+
+def exhaustive_fermat_primality_test(number):
+    if number < 2:
+        return False
+
+    # As per the algorithm we know that we must first generate a list
+    # of numbers from 2 ... number - 2. Note in python range is non-inclusive
+    # of the final index hence we do number - 1.
+    list_of_numbers = list(range(2, number - 1))
+    
+    for num in list_of_numbers:
+        base = num
+        exponent = number - 1
+        modulo = number
+        remainder = base ** exponent % modulo
+        
+        if remainder != 1:
+            # We know that it is not a prime and hence we terminate the algorithm.
+            return False
+        
+    return True
 
 def sieve_of_eratosthenes(number):
     if number < 2:
@@ -6,7 +28,7 @@ def sieve_of_eratosthenes(number):
     elif number == 2:
         return [2]
         
-    # As per the algorithm we will firstly generate a list from 2 ... N.
+    # As per the algorithm we will firstly generate a list from 2 ... number.
     list_of_numbers = list(range(2, number + 1))
 
     # We know that the first entry will always be a prime i.e., 2.
@@ -37,10 +59,16 @@ def sieve_of_eratosthenes(number):
     return list_of_numbers
 
 def main():
-    print("Upto what number would you like to generate the primes? ", end="")
+    #print("Upto what number would you like to generate the primes? ", end="")
+    #number = int(input())
+    #list_of_primes = sieve_of_eratosthenes(number)
+    #print(f"The list of primes upto {number} are: {list_of_primes}")
+
+
+    print("What number would you like to know is a prime or not? ", end="")
     number = int(input())
-    list_of_primes = sieve_of_eratosthenes(number)
-    print(f"The list of primes upto {number} are: {list_of_primes}")
+    is_prime = exhaustive_fermat_primality_test(number)
+    print(f"Is it prime: {is_prime}")
 
 if __name__ == "__main__":
     main()
